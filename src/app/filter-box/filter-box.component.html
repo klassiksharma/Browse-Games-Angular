@@ -1,0 +1,13 @@
+<span class="icon" (click)="show(field, $event)">
+  <i class="material-icons">filter_list</i>
+</span>
+<div class="filter-box" clickOutside (clickOutside)="close($event)" *ngIf="!hideFilterBox">
+  <ul>
+    <li>
+      <input type="checkbox" (click)="selectAllToFilter($event, field)" [checked]="inSelectAll(field)"> Select All
+    </li>
+    <li *ngFor="let set of unique">
+      <input type="checkbox" (click)="addToFilter(set,field, $event)" [checked]="inFilterArray(set,field)"> {{set}}
+    </li>
+  </ul>
+</div>
